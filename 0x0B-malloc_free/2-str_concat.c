@@ -1,83 +1,49 @@
-#include "main.h"
-		
+#include <stdio.h>
 #include <stdlib.h>
-		
+#include "main.h"
+
 /**
-		
- * str_concat - get ends of input and add together for size
-		
- * @s1: input one to concat
-		
- * @s2: input two to concat
-		
- * Return: concat of s1 and s2
-		
+ * string_nconcat - function to concatnate strings with n bytes
+ * @s1: destination for concatnation
+ * @s2: source of string
+ * @n: int type for size of byte
+ * Return: pointer to new memory allocated
  */
-		
-char *str_concat(char *s1, char *s2)
-		
+
+char *string_nconcat(char *s1, char *s2)
 {
-		
-	char *conct;
-		
-	int i, ci;
-		
+	int count, count1;
+	int sign = n;
+	char *ptr;
+	int len1, len2;
 
-		
 	if (s1 == NULL)
-		
 		s1 = "";
-		
 	if (s2 == NULL)
-		
 		s2 = "";
-		
 
-		
-		i = ci = 0;
-		
-	while (s1[i] != '\0')
-		
-		i++;
-		
-	while (s2[ci] != '\0')
-		
-		ci++;
-		
-	conct = malloc(sizeof(char) * (i + ci + 1));
-		
+	for (len1 = 0; s1[len1] != '\0'; len1++)
+		;
+	for (len2 = 0; s2[len2] != '\0'; len2++)
+		;
 
-		
-	if (conct == NULL)
-		
+	if (sign >= len2)
+	{
+		sign = len2;
+		ptr = malloc(sizeof(char) * (len1 + len2 + 1));
+	}
+	else
+		ptr = malloc(sizeof(char) * (len1 + n + 1));
+	if (ptr == NULL)
 		return (NULL);
-		
-	i = ci = 0;
-		
-	while (s1[i] != '\0')
-		
+	for (count = 0; count < len1; count++)
 	{
-		
-		conct[i] = s1[i];
-		
-		i++;
-		
+		ptr[count] = s1[count];
 	}
-		
-
-		
-	while (s2[ci] != '\0')
-		
+	for (count1 = 0; count1 < sign; count1++)
 	{
-		
-		conct[i] = s2[ci];
-		
-		i++, ci++;
-		
+		ptr[count++] = s2[count1];
 	}
-		
-	conct[i] = '\0';
-		
-	return (conct);
-		
+	ptr[count++] = '\0';
+	return (ptr);
 }
