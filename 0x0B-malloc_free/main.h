@@ -17,4 +17,6 @@ char *argstostr(int ac, char **av);
 
 char **strtow(char *str);
 
+int number(char *str);
+
 #endif
