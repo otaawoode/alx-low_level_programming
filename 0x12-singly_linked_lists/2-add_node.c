@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <string.h>
 
 int _strlen_recursion(char *s);
 
