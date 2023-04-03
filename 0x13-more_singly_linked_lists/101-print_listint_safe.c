@@ -1,7 +1,9 @@
 #include "lists.h"
+#include <stdio>
 
 size_t looped_listint_count(listint_t *head);
 size_t free_listint_safe(listint_t **h);
+size_t print_listint_safe(const listint_t *head);
 
 /**
  * looped_listint_count - Counts the number of unique nodes
